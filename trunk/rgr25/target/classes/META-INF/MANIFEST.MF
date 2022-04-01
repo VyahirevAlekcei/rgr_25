@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Built-By: Алексей Вяхирев
+Build-Jdk: 17.0.2
+Main-Class: Laba2.subversion
+Created-By: Maven Integration for Eclipse
+
