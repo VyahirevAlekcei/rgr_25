@@ -21,7 +21,7 @@ public class Main {
 		Main_Panel.add(FirstLabel);
 		FirstLabel.setBounds(20, 80, 260, 20);
 		FirstLabel.setVisible(true);
-		final JTextField FirstField = new JTextField();
+		final JTextField FirstField = new JTextField(" ");
 		Main_Panel.add(FirstField);
 		FirstField.setBounds(20, 100, 260, 20);
 		FirstField.setVisible(true);
@@ -29,7 +29,7 @@ public class Main {
 		Main_Panel.add(SecondLabel);
 		SecondLabel.setBounds(20, 120, 260, 20);
 		SecondLabel.setVisible(true);
-		final JTextField SecondField = new JTextField();
+		final JTextField SecondField = new JTextField(" ");
 		Main_Panel.add(SecondField);
 		SecondField.setBounds(20, 140, 260, 20);
 		SecondField.setVisible(true);
@@ -37,7 +37,7 @@ public class Main {
 		Main_Panel.add(ThirdLabel);
 		ThirdLabel.setBounds(20, 160, 260, 20);
 		ThirdLabel.setVisible(true);
-		final JTextField ThirdField = new JTextField();
+		final JTextField ThirdField = new JTextField(" ");
 		Main_Panel.add(ThirdField);
 		ThirdField.setBounds(20, 180, 260, 20);
 		ThirdField.setVisible(true);
@@ -72,20 +72,26 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String S_stroka = FirstField.getText();
-				Integer S = Integer.parseInt(S_stroka);
+				//Integer S = Integer.parseInt(S_stroka);
 				String M_stroka = SecondField.getText();
-				Integer M = Integer.parseInt(M_stroka);
+				//Integer M = Integer.parseInt(M_stroka);
 				String P_stroka = ThirdField.getText();
-				float P = Integer.parseInt(P_stroka);
-				 P = (float) P / 1200;
-				 A = S * P / ( 1 - Math.pow(1 + P, -M));
-				 A = Math.ceil(A);
-				 double H = A * M;
-				SeventhLabel.setText("" + H);
-				FifthLabel.setText("" + A);
-				FifthLabel.setVisible(true);
-				SeventhLabel.setVisible(true);
-				
+				//float P = Integer.parseInt(P_stroka);
+				try {
+					Integer S = Integer.parseInt(S_stroka);
+					Integer M = Integer.parseInt(M_stroka);
+					float P = Integer.parseInt(P_stroka);
+					P = (float) P / 1200;
+					 A = S * P / ( 1 - Math.pow(1 + P, -M));
+					 A = Math.ceil(A);
+					 double H = A * M;
+					SeventhLabel.setText("" + H);
+					FifthLabel.setText("" + A);
+					FifthLabel.setVisible(true);
+					SeventhLabel.setVisible(true);
+				} catch(NumberFormatException b) {
+					JOptionPane.showMessageDialog(null, "Ошибка при обработке вводных данных.\n Скорректируйте данные." , "Сообщение" , JOptionPane.PLAIN_MESSAGE);
+				}
 			}
 			
 		}
