@@ -3,6 +3,8 @@ package Calculator;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.*;
 import javax.swing.JTextField;
@@ -27,8 +29,22 @@ public class Main {
 		FirstLabel.setBounds(20, 80, 260, 20);
 		FirstLabel.setVisible(true);
 		FirstLabel.setFont(shrift);
-		final JTextField FirstField = new JTextField(" ");
+		final JTextField FirstField = new JTextField("");
 		Main_Panel.add(FirstField);
+		FirstField.addKeyListener(new KeyListener() {
+        	
+            public void keyTyped(KeyEvent e) {
+                char caracter = e.getKeyChar();
+                if (((caracter < '0') || (caracter > '9'))
+                        && (caracter != '\b')) {
+                    e.consume();
+                }
+            }
+			public void keyPressed(KeyEvent e) {	
+			}
+			public void keyReleased(KeyEvent e) {	
+			}
+        });
 		FirstField.setBounds(20, 100, 260, 20);
 		FirstField.setVisible(true);
 		JLabel SecondLabel = new JLabel("—рок кредитовани€ в мес€цах");
@@ -36,19 +52,47 @@ public class Main {
 		SecondLabel.setBounds(20, 120, 260, 20);
 		SecondLabel.setVisible(true);
 		SecondLabel.setFont(shrift);
-		final JTextField SecondField = new JTextField(" ");
+		final JTextField SecondField = new JTextField("");
 		Main_Panel.add(SecondField);
 		SecondField.setBounds(20, 140, 260, 20);
 		SecondField.setVisible(true);
+		SecondField.addKeyListener(new KeyListener() {
+        	
+            public void keyTyped(KeyEvent e) {
+                char caracter = e.getKeyChar();
+                if (((caracter < '0') || (caracter > '9'))
+                        && (caracter != '\b')) {
+                    e.consume();
+                }
+            }
+			public void keyPressed(KeyEvent e) {	
+			}
+			public void keyReleased(KeyEvent e) {	
+			}
+        });
 		JLabel ThirdLabel = new JLabel("√одова€ ставка по кредиту");
 		Main_Panel.add(ThirdLabel);
 		ThirdLabel.setBounds(20, 160, 260, 20);
 		ThirdLabel.setVisible(true);
 		ThirdLabel.setFont(shrift);
-		final JTextField ThirdField = new JTextField(" ");
+		final JTextField ThirdField = new JTextField("");
 		Main_Panel.add(ThirdField);
 		ThirdField.setBounds(20, 180, 260, 20);
 		ThirdField.setVisible(true);
+		ThirdField.addKeyListener(new KeyListener() {
+        	
+            public void keyTyped(KeyEvent e) {
+                char caracter = e.getKeyChar();
+                if (((caracter < '0') || (caracter > '9'))
+                        && (caracter != '\b')) {
+                    e.consume();
+                }
+            }
+			public void keyPressed(KeyEvent e) {	
+			}
+			public void keyReleased(KeyEvent e) {	
+			}
+        });
 		JLabel FourthLabel = new JLabel("≈жемес€чный взнос по ипотеке:");
 		Main_Panel.add(FourthLabel);
 		FourthLabel.setBounds(320, 100, 260, 20);
@@ -126,10 +170,4 @@ public class Main {
 		Main_Frame.setVisible(true);
 		Main_Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
-	private static JLabel JLabel(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
