@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.text.DecimalFormat;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,6 +15,11 @@ import javax.swing.JTextField;
 
 public final class Panel extends JPanel {
 
+	private double S;
+	private double P;
+	private double M;
+	
+	
 	public Panel() {
 		
 		setLayout(null);
@@ -131,20 +137,22 @@ public final class Panel extends JPanel {
 				String P_stroka = ThirdField.getText();
 				//float P = Integer.parseInt(P_stroka);
 				try {
-					Integer S = Integer.parseInt(S_stroka);
-					Integer M = Integer.parseInt(M_stroka);
-					float P = Integer.parseInt(P_stroka);
-					P = (float) P / 1200;
+					S = Integer.parseInt(S_stroka);
+					M = Integer.parseInt(M_stroka);
+					P = Integer.parseInt(P_stroka);
+					P = (double) P / 1200;
 					 A = S * P / ( 1 - Math.pow(1 + P, -M));
 					 A = Math.ceil(A);
 					 double H = A * M;
 					SeventhLabel.setText("" + H);
-					FifthLabel.setText("" + A);
+					//FifthLabel.setText("" + A);
 					FifthLabel.setVisible(true);
 					SeventhLabel.setVisible(true);
 				} catch(NumberFormatException b) {
 					JOptionPane.showMessageDialog(null, "Ошибка при обработке вводных данных.\n Скорректируйте данные." , "Сообщение" , JOptionPane.PLAIN_MESSAGE);
 				}
+				DecimalFormat df = new DecimalFormat("###.##");
+				FifthLabel.setText(df.format(getResult()));
 			}
 			
 		}
@@ -163,6 +171,40 @@ public final class Panel extends JPanel {
 		ActionListener ExitListener = new ExitButton();
 		Exit.addActionListener(ExitListener);
 		
+		
 	}
 	
+	public void setS(double S) {
+    	this.S = S;
+    }	    
+
+    public void setM(double M) {
+    	this.M = M;
+    }	   
+  
+    public void setP(double P) {
+    	this.P = P;
+    	
+    }
+    public double getP() {
+    	return P;
+    }	    
+
+    public double getS() {
+    	return S;
+    }	    
+
+    public double getM() {
+    	return M;
+    }
+    public double getResult() {            
+        if (getM() == 0) {
+        	JOptionPane.showMessageDialog(null, "Введите количество полных лет");
+        	return 0;
+        } else if (getP() > getS()) {
+        	JOptionPane.showMessageDialog(null, "Первоначальный взнос не может быть больше или равен стоимости недвижимости");
+        	return 0;
+        } 
+    	return ((getS() * getP()) / ( 1 - Math.pow(1 + (getP()), -(getM()) )));
+    }
 }
