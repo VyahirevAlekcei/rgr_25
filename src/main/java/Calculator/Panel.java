@@ -1,5 +1,6 @@
 package Calculator;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+
+
+
 public final class Panel extends JPanel {
+
 
 	private double S;
 	private double P;
@@ -22,10 +27,20 @@ public final class Panel extends JPanel {
 	
 	public Panel() {
 		
+		
+		
 		setLayout(null);
-		
+		// ШРИФТЫ
 		Font shrift = new Font ("TimesRoman", Font.BOLD, 14);
+		Font shrift1 = new Font ("TimesRoman", Font.BOLD, 16);
 		
+	    //Приветствие
+	    final JLabel Hello = new JLabel("Добро пожаловать в ипотечный калькулятор для юридических лиц!");
+	    add(Hello);
+	    Hello.setBounds(20,5,550,20);
+	    Hello.setVisible(true);
+	    Hello.setFont(shrift1);
+	    
 		JLabel FirstLabel = new JLabel("Общая сумма кредита");
 		add(FirstLabel);
 		FirstLabel.setBounds(20, 80, 260, 20);
@@ -34,7 +49,6 @@ public final class Panel extends JPanel {
 		final JTextField FirstField = new JTextField("");
 		add(FirstField);
 		FirstField.addKeyListener(new KeyListener() {
-        	
             public void keyTyped(KeyEvent e) {
                 char caracter = e.getKeyChar();
                 if (((caracter < '0') || (caracter > '9'))
@@ -54,6 +68,7 @@ public final class Panel extends JPanel {
 		SecondLabel.setBounds(20, 120, 260, 20);
 		SecondLabel.setVisible(true);
 		SecondLabel.setFont(shrift);
+		
 		final JTextField SecondField = new JTextField("");
 		add(SecondField);
 		SecondField.setBounds(20, 140, 260, 20);
@@ -100,21 +115,25 @@ public final class Panel extends JPanel {
 		FourthLabel.setBounds(320, 100, 260, 20);
 		FourthLabel.setVisible(true);
 		FourthLabel.setFont(shrift);
+		FourthLabel.setForeground(Color.BLACK);
 		final JLabel FifthLabel = new JLabel("");
 		add(FifthLabel);
 		FifthLabel.setBounds(320, 120, 260, 20);
 		FifthLabel.setVisible(false);
-		FifthLabel.setFont(shrift);
+		FifthLabel.setFont(shrift1);
+		FifthLabel.setForeground(Color.BLACK);
 		JLabel SixthLabel = new JLabel("Общая сумма кредита с процентами:");
 		add(SixthLabel);
-		SixthLabel.setBounds(320, 140, 260, 20);
+		SixthLabel.setBounds(320, 150, 300, 20);
 		SixthLabel.setVisible(true);
 		SixthLabel.setFont(shrift);
+		SixthLabel.setForeground(Color.BLACK);
 		final JLabel SeventhLabel = new JLabel("");
 		add(SeventhLabel);
-		SeventhLabel.setBounds(320, 160, 260, 20);
+		SeventhLabel.setBounds(320, 170, 260, 20);
 		SeventhLabel.setVisible(false);
-		SeventhLabel.setFont(shrift);
+		SeventhLabel.setFont(shrift1);
+		SeventhLabel.setForeground(Color.BLACK);
 		
 		JButton Information = new JButton("Информация");
 		Information.setBounds(20, 300, 120, 30);
@@ -144,7 +163,7 @@ public final class Panel extends JPanel {
 					 A = S * P / ( 1 - Math.pow(1 + P, -M));
 					 A = Math.ceil(A);
 					 double H = A * M;
-					SeventhLabel.setText("" + H);
+					SeventhLabel.setText("" + H +"   руб.");
 					//FifthLabel.setText("" + A);
 					FifthLabel.setVisible(true);
 					SeventhLabel.setVisible(true);
@@ -152,7 +171,7 @@ public final class Panel extends JPanel {
 					JOptionPane.showMessageDialog(null, "Ошибка при обработке вводных данных.\n Скорректируйте данные." , "Сообщение" , JOptionPane.PLAIN_MESSAGE);
 				}
 				DecimalFormat df = new DecimalFormat("###.##");
-				FifthLabel.setText(df.format(getResult()));
+				FifthLabel.setText(df.format(getResult())+"   руб.");
 			}
 			
 		}
