@@ -1,9 +1,11 @@
 package Calculator;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.JTextField;
 
 public class Main {
 	public static void main(String[] args) {
@@ -12,15 +14,19 @@ public class Main {
 		Main_Frame.setTitle("Лучший калькулятор");
 		Main_Frame.setBounds(500, 400, 600, 400);
 		Main_Frame.setResizable(false);
-		
+	
 		JPanel Main_Panel = new JPanel();
 		Main_Panel.setLayout(null);
 		Main_Frame.add(Main_Panel);
+		
+		
+		Font shrift = new Font ("TimesRoman", Font.BOLD, 14);
 		
 		JLabel FirstLabel = new JLabel("Общая сумма кредита");
 		Main_Panel.add(FirstLabel);
 		FirstLabel.setBounds(20, 80, 260, 20);
 		FirstLabel.setVisible(true);
+		FirstLabel.setFont(shrift);
 		final JTextField FirstField = new JTextField(" ");
 		Main_Panel.add(FirstField);
 		FirstField.setBounds(20, 100, 260, 20);
@@ -29,6 +35,7 @@ public class Main {
 		Main_Panel.add(SecondLabel);
 		SecondLabel.setBounds(20, 120, 260, 20);
 		SecondLabel.setVisible(true);
+		SecondLabel.setFont(shrift);
 		final JTextField SecondField = new JTextField(" ");
 		Main_Panel.add(SecondField);
 		SecondField.setBounds(20, 140, 260, 20);
@@ -37,6 +44,7 @@ public class Main {
 		Main_Panel.add(ThirdLabel);
 		ThirdLabel.setBounds(20, 160, 260, 20);
 		ThirdLabel.setVisible(true);
+		ThirdLabel.setFont(shrift);
 		final JTextField ThirdField = new JTextField(" ");
 		Main_Panel.add(ThirdField);
 		ThirdField.setBounds(20, 180, 260, 20);
@@ -45,23 +53,28 @@ public class Main {
 		Main_Panel.add(FourthLabel);
 		FourthLabel.setBounds(320, 100, 260, 20);
 		FourthLabel.setVisible(true);
+		FourthLabel.setFont(shrift);
 		final JLabel FifthLabel = new JLabel("");
 		Main_Panel.add(FifthLabel);
 		FifthLabel.setBounds(320, 120, 260, 20);
 		FifthLabel.setVisible(false);
+		FifthLabel.setFont(shrift);
 		JLabel SixthLabel = new JLabel("Общая сумма кредита с процентами:");
 		Main_Panel.add(SixthLabel);
 		SixthLabel.setBounds(320, 140, 260, 20);
 		SixthLabel.setVisible(true);
+		SixthLabel.setFont(shrift);
 		final JLabel SeventhLabel = new JLabel("");
 		Main_Panel.add(SeventhLabel);
 		SeventhLabel.setBounds(320, 160, 260, 20);
 		SeventhLabel.setVisible(false);
+		SeventhLabel.setFont(shrift);
 		
 		JButton Information = new JButton("Информация");
 		Information.setBounds(20, 300, 120, 30);
 		Main_Panel.add(Information);
 		Information.setVisible(true);
+		
 		ActionListener InforListener = new Information();
 		Information.addActionListener(InforListener);
 		
@@ -112,6 +125,11 @@ public class Main {
 		
 		Main_Frame.setVisible(true);
 		Main_Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	private static JLabel JLabel(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
