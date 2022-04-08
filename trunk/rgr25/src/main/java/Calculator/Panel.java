@@ -218,10 +218,10 @@ public final class Panel extends JPanel {
     }
     public double getResult() {            
         if (getM() == 0) {
-        	JOptionPane.showMessageDialog(null, "Введите количество полных лет");
+        	JOptionPane.showMessageDialog(null, "");
         	return 0;
         } else if (getP() > getS()) {
-        	JOptionPane.showMessageDialog(null, "Первоначальный взнос не может быть больше или равен стоимости недвижимости");
+        	JOptionPane.showMessageDialog(null, "");
         	return 0;
         } 
     	return ((getS() * getP()) / ( 1 - Math.pow(1 + (getP()), -(getM()) )));
