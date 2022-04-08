@@ -1,11 +1,10 @@
 package rgr25;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import Calculator.Panel;
-
 
 public class TestOne {
 	Panel testingPanel1= new Panel();

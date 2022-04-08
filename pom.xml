@@ -36,7 +36,7 @@
    		 <configuration>
           <archive>
             <manifest>
-              <mainClass>Laba2.subversion</mainClass>
+              <mainClass>Calculator.Panel</mainClass>
             </manifest>
           </archive>
         </configuration>
