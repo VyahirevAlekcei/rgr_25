@@ -36,7 +36,7 @@
    		 <configuration>
           <archive>
             <manifest>
-              <mainClass>Calculator.Panel</mainClass>
+              <mainClass>Calculator.Main</mainClass>
             </manifest>
           </archive>
         </configuration>

@@ -218,12 +218,16 @@ public final class Panel extends JPanel {
     }
     public double getResult() {            
         if (getM() == 0) {
-        	JOptionPane.showMessageDialog(null, "");
+        	JOptionPane.showMessageDialog(null, null);
         	return 0;
         } else if (getP() > getS()) {
-        	JOptionPane.showMessageDialog(null, "");
+        	JOptionPane.showMessageDialog(null,null);
         	return 0;
         } 
     	return ((getS() * getP()) / ( 1 - Math.pow(1 + (getP()), -(getM()) )));
     }
+
+	public Object getDataAsString() {
+		return null;
+	}
 }
