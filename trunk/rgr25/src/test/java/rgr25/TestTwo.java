@@ -2,6 +2,8 @@ package rgr25;
 
 
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import Calculator.Panel;
@@ -17,14 +19,12 @@ public class TestTwo {
 		testingPanel2.setS(0);
 		testingPanel2.setP(0);
 		testingPanel2.setM(0);
-		assertEquals(testingPanel2.getResult()== 0);
+		assertTrue(testingPanel2.getResult()== 0);
 	
 	}
 
 
-	private void assertEquals(Object dataAsString) {
-		// TODO Auto-generated method stub
-		
-	}
+
+	
 
 }
