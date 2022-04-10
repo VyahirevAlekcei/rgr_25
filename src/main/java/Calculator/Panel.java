@@ -20,10 +20,22 @@ import javax.swing.JTextField;
 public final class Panel extends JPanel {
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double S;
 	private double P;
 	private double M;
 	
+	//ËÅÉÁËÛ
+	JLabel FirstLabel = new JLabel("Îáùàÿ ñóììà êðåäèòà");
+	JLabel SecondLabel = new JLabel("Ñðîê êðåäèòîâàíèÿ â ìåñÿöàõ");
+	JLabel ThirdLabel = new JLabel("Ãîäîâàÿ ñòàâêà ïî êðåäèòó");
+	JLabel FourthLabel = new JLabel("Åæåìåñÿ÷íûé âçíîñ ïî èïîòåêå:");
+	JLabel FifthLabel = new JLabel("");
+	JLabel SeventhLabel = new JLabel("");
+	JLabel SixthLabel = new JLabel("Îáùàÿ ñóììà êðåäèòà ñ ïðîöåíòàìè:");
 	
 	public Panel() {
 		
@@ -34,14 +46,14 @@ public final class Panel extends JPanel {
 		Font shrift = new Font ("TimesRoman", Font.BOLD, 14);
 		Font shrift1 = new Font ("TimesRoman", Font.BOLD, 16);
 		
-	    //Ïðèâåòñòâèå
+	    //ÏÐÈÂÅÒÑÒÂÈÅ
 	    final JLabel Hello = new JLabel("Äîáðî ïîæàëîâàòü â èïîòå÷íûé êàëüêóëÿòîð äëÿ þðèäè÷åñêèõ ëèö!");
 	    add(Hello);
 	    Hello.setBounds(20,5,550,20);
 	    Hello.setVisible(true);
 	    Hello.setFont(shrift1);
 	    
-		JLabel FirstLabel = new JLabel("Îáùàÿ ñóììà êðåäèòà");
+		//ÎÁÙÀß ÑÓÌÌÀ ÊÐÅÄÈÒÀ
 		add(FirstLabel);
 		FirstLabel.setBounds(20, 80, 260, 20);
 		FirstLabel.setVisible(true);
@@ -63,7 +75,8 @@ public final class Panel extends JPanel {
         });
 		FirstField.setBounds(20, 100, 260, 20);
 		FirstField.setVisible(true);
-		JLabel SecondLabel = new JLabel("Ñðîê êðåäèòîâàíèÿ â ìåñÿöàõ");
+		
+	    //ÑÐÎÊ ÊÐÅÄÈÒÎÂÀÍÈß
 		add(SecondLabel);
 		SecondLabel.setBounds(20, 120, 260, 20);
 		SecondLabel.setVisible(true);
@@ -87,7 +100,8 @@ public final class Panel extends JPanel {
 			public void keyReleased(KeyEvent e) {	
 			}
         });
-		JLabel ThirdLabel = new JLabel("Ãîäîâàÿ ñòàâêà ïî êðåäèòó");
+		
+		//ÃÎÄÎÂÀß ÑÒÀÂÊÀ
 		add(ThirdLabel);
 		ThirdLabel.setBounds(20, 160, 260, 20);
 		ThirdLabel.setVisible(true);
@@ -110,31 +124,32 @@ public final class Panel extends JPanel {
 			public void keyReleased(KeyEvent e) {	
 			}
         });
-		JLabel FourthLabel = new JLabel("Åæåìåñÿ÷íûé âçíîñ ïî èïîòåêå:");
+		
+	    //ÅÆÅÌÅÑß×ÍÛÉ ÂÇÍÎÑ
 		add(FourthLabel);
 		FourthLabel.setBounds(320, 100, 260, 20);
 		FourthLabel.setVisible(true);
 		FourthLabel.setFont(shrift);
 		FourthLabel.setForeground(Color.BLACK);
-		final JLabel FifthLabel = new JLabel("");
+		//ÂÛÂÎÄ ÅÆÅÌÅÑß×ÍÎÃÎ ÂÇÍÎÑÀ
 		add(FifthLabel);
 		FifthLabel.setBounds(320, 120, 260, 20);
 		FifthLabel.setVisible(false);
 		FifthLabel.setFont(shrift1);
 		FifthLabel.setForeground(Color.BLACK);
-		JLabel SixthLabel = new JLabel("Îáùàÿ ñóììà êðåäèòà ñ ïðîöåíòàìè:");
+		//ÎÁÙÀß ÑÓÌÌÀ
 		add(SixthLabel);
 		SixthLabel.setBounds(320, 150, 300, 20);
 		SixthLabel.setVisible(true);
 		SixthLabel.setFont(shrift);
 		SixthLabel.setForeground(Color.BLACK);
-		final JLabel SeventhLabel = new JLabel("");
+		// ÂÛÂÎÄ ÎÁÙÀß ÑÓÌÌÀ
 		add(SeventhLabel);
 		SeventhLabel.setBounds(320, 170, 260, 20);
 		SeventhLabel.setVisible(false);
 		SeventhLabel.setFont(shrift1);
 		SeventhLabel.setForeground(Color.BLACK);
-		
+		//ÈÍÔÎÐÌÀÖÈß
 		JButton Information = new JButton("Èíôîðìàöèÿ");
 		Information.setBounds(20, 300, 120, 30);
 		add(Information);
@@ -147,8 +162,7 @@ public final class Panel extends JPanel {
 
 			private double A;
 
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e) {	
 				String S_stroka = FirstField.getText();
 				//Integer S = Integer.parseInt(S_stroka);
 				String M_stroka = SecondField.getText();
@@ -218,16 +232,18 @@ public final class Panel extends JPanel {
     }
     public double getResult() {            
         if (getM() == 0) {
-        	JOptionPane.showMessageDialog(null, null);
+        	SeventhLabel.setText("Ââåäèòå êîððåêòíûå çíà÷åíèÿ");
+        	SeventhLabel.setForeground(Color.RED);
+        	//System.out.println("");
+        	//JOptionPane.showMessageDialog(null,"Ââåäèòå êîððåêòíûå çíà÷åíèÿ");
         	return 0;
         } else if (getP() > getS()) {
-        	JOptionPane.showMessageDialog(null,null);
+        	JOptionPane.showMessageDialog(null,"");
         	return 0;
         } 
     	return ((getS() * getP()) / ( 1 - Math.pow(1 + (getP()), -(getM()) )));
     }
 
-	public Object getDataAsString() {
-		return null;
-	}
+
+	
 }
